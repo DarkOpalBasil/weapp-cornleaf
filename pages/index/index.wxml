@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{appInfo.logoUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{appInfo.title}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto" style="font-weight:bolder; color:green;">
+      🌽{{motto}}🍂
+    </text>
+  </view>
+  <view style="height: 60px;width: auto;"></view>
+  <view>
+    <text class="user-motto" style="font-weight: bolder;">{{info.title}}</text>
+  </view>
+  <view style="width: 200px;height: auto;">
+    <text class="user-motto">{{info.context}}</text>
+  </view>
+  <view style="font-size: 12px;margin-top: 40px;">
+    <text>{{info.subcontext}}</text>
+  </view>
+</view>

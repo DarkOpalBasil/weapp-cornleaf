@@ -1,0 +1,35 @@
+<view style="height: 100%;">
+  <!-- 最终保存的 -->
+<canvas canvas-id="download" class="downloadCanvas"></canvas>
+
+<view wx:if="{{step=='1'}}">
+  <camera device-position="{{device}}" flash="{{isFlash}}" class="camerabgImage-view" wx:if='{{showCamera}}'></camera>
+  
+  <!-- 下面拍照功能 -->
+  <view class="first" wx:if='{{!isSelectFilter}}'>
+    <view class="auto">
+      <image src="/image/photo/upload.png" mode="widthFix" bindtap="uploadImg"></image>
+    </view>
+    <view class="photo-btn">
+      <view class="inner" bindtap="takePhoto"></view>
+    </view>
+    <view class="auto">
+      <image src="/image/photo/auto.png" mode="widthFix" bindtap="changeDevice"></image>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{step=='2'}}">
+  <image src="{{photoPath}}" class="photoImg"></image>
+  <image src="{{chooseImg}}" class="photoImg"></image>
+  <view class="photoImg" style="background-color:{{selectFilter.bgColor}};opacity:{{selectFilter.opacity}}"></view>
+<!-- 下面返回和添加文字 -->
+  <view class="second">
+    <image src="/image/photo/back.png" mode="widthFix" bindtap="back"></image>
+    <view class="download">
+      <image src="/image/photo/upcloud.png" mode="widthFix" bindtap="uploadPhoto"></image>
+    </view>
+    <image src="/image/photo/download.png" mode="widthFix" bindtap="download"></image>
+  </view>
+</view>
+</view>

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view bind:tap="onButtonTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="clean" style="text-align: center;">
+    <text>{{motto}}</text>
+    <text class="user-motto">
+      {{userInfo.nickName}}
+    </text>
+  </view>
+  <button class="context" open-type="getUserInfo" bind:tap="onButtonTap">跳转日志</button>
+</view>

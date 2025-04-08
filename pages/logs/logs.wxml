@@ -1,0 +1,7 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <block wx:for="{{logs}}" wx:for-item="log" wx:key="index">
+    <text>当前设备上次访问：</text>
+    <text class="log-item">{{index + 1}}. {{userInfo.nickName}} - {{log}}</text>
+  </block>
+</view>

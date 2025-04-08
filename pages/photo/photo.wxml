@@ -1,0 +1,37 @@
+<!--pages/photo/photo.wxml-->
+<!--project.wxml-->
+<view style="text-align: center;">
+  <text style="font-size: 10px;">温馨提示：小程序图片拍摄大小为390×390像素</text>
+</view>
+<view style="text-align: center; margin-top: 20px; margin-bottom: 10px;">
+  <text>玉米叶片图像识别记录</text>
+</view>
+<view wx:for="{{image}}" wx:key="id" class="item-card" bindtap="toggleDetail" data-index="{{index}}">
+  <view class="base-info">
+    <text>🏷️标签：{{index + 1}}</text>
+    <text>🌽状态：{{diseaseMap[item.disease]}}</text>
+  </view>
+  <view class="detail-info" wx:if="{{item.expand}}">
+    <view class="info-row" style="color: blue;" catchtap="showOpenId" data-index="{{index}}">
+      <text wx:if="{{!item.showOpenId}}">点击查看上传用户ID🔎</text>
+      <text wx:else class="blink-text">用户 UID🪪：{{item.openId}}</text>
+    </view>
+    <view class="info-row">
+      <text>数据库ID💾：{{item.id}}</text>
+    </view>
+    <view class="info-row">
+      <text>上传类型📸：{{uploadTypeMap[item.uploadType]}}</text>
+      <text>疾病分类🔬：{{diseaseMap[item.disease]}}</text>
+    </view>
+    <view class="info-row">
+      <text>上传时间⏲️：{{item.createTime}}</text>
+    </view>
+    <view class="info-row">
+      <text>更新时间⌚：{{item.updateTime}}</text>
+    </view>
+    <view style="display: flex; justify-content: center;">
+      <image src="https://image-wx-cornleaf.oss-cn-qingdao.aliyuncs.com/{{item.image}}" style="height: auto; width: 100vh;" mode="widthFix"></image>
+    </view>
+    <button bind:tap="deleteById" data-id="{{item.id}}" style="background:honeydew;">删除</button>
+  </view>
+</view>

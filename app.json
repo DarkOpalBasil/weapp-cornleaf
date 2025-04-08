@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/camera/camera",
+    "pages/photo/photo",
+    "pages/main/main",
+    "pages/logs/logs",
+    "pages/login/login"
+  ],
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/book.png",
+        "selectedIconPath": "image/bookHL.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/camera/camera",
+        "iconPath": "image/camera.png",
+        "selectedIconPath": "image/cameraHL.png",
+        "text": "检测"
+      },
+      {
+        "pagePath": "pages/photo/photo",
+        "iconPath": "image/photo.png",
+        "selectedIconPath": "image/photoHL.png",
+        "text": "图片"
+      },
+      {
+        "pagePath": "pages/main/main",
+        "iconPath": "image/user.png",
+        "selectedIconPath": "image/userHL.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "玉米叶片病变识别",
+    "navigationBarTextStyle": "black"
+  },
+  "debug": true
+}
