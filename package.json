@@ -14,12 +14,12 @@
   "author": "Basil",
   "license": "MIT",
   "repository": {
-    "type": "gitee",
-    "url": "https://github.com/yourname/miniproject.git"
+    "type": "github",
+    "url": "https://github.com/DarkOpalBasil/weapp-cornleaf"
   },
   "bugs": {
-    "type": "gitee",
-    "url": "https://github.com/yourname/miniproject.git"
+    "type": "github",
+    "url": "https://github.com/DarkOpalBasil/weapp-cornleaf/issues"
   },
   "homepage": "/",
   "dependencies": {
