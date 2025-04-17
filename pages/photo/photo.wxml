@@ -4,6 +4,7 @@
   <text style="font-size: 10px;">温馨提示：小程序图片拍摄大小为390×390像素</text>
 </view>
 <view style="text-align: center; margin-top: 20px; margin-bottom: 10px;">
+  <image src="../../image/logo.png" style="width: 45rpx; height: 45rpx;vertical-align: text-bottom;"></image>
   <text>玉米叶片图像识别记录</text>
 </view>
 <view wx:for="{{image}}" wx:key="id" class="item-card" bindtap="toggleDetail" data-index="{{index}}">

@@ -11,7 +11,7 @@ Page({
     },
     userInfo: {},
     appInfo:{
-      logoUrl:'../../image/logo.png',
+      logoUrl:'../../image/weapplogo.png',
       title:'使用微信内置API调用相机'
     }
   },
