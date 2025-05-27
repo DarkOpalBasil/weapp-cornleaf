@@ -8,8 +8,8 @@ Page({
       "openId": ''
     },
     motto: '欢迎登录！',
-    urlLogin: 'http://49.233.83.47:8082/user/login',
-    urlRegister: 'http://49.233.83.47:8082/user/register'
+    urlLogin: 'https://www.qiguoqiang.top/user/login',
+    urlRegister: 'https://www.qiguoqiang.top/user/register'
   },
   onLoad: function () {
     //调用API从本地缓存中获取数据
@@ -46,10 +46,11 @@ Page({
             url: that.data.urlLogin,
             method: 'POST',
             header: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'text/plain'
             },
             data: loginRes.code, // 发送用户登录凭证
             success: function (response) {
+              console.log("loginRes:",loginRes)
               console.log('response:', response);
               if (response.data.code == 0) {
                 // 处理成功返回的用户数据
@@ -113,45 +114,62 @@ Page({
     wx.getUserProfile({
       desc: '需要获取您的用户信息',
       success: (res) => {
-        const userInfoTemp = this.data.userInfo
-        userInfoTemp.nickName = res.userInfo.nickName
-        userInfoTemp.avatarUrl = res.userInfo.avatarUrl
+        // 合并用户信息
+        const userInfoTemp = this.data.userInfo || {};  //确保 userInfo 不为 undefined
+        userInfoTemp.nickName = res.userInfo.nickName;
+        userInfoTemp.avatarUrl = res.userInfo.avatarUrl;
+  
         this.setData({
           userInfo: userInfoTemp
         });
-        app.globalData.userInfo = this.data.userInfo;
-        console.log('用户信息已更新');
-        console.log(this.data.userInfo)
-        var that = this;
+  
+        app.globalData.userInfo = userInfoTemp;
+        console.log('用户信息已更新:', userInfoTemp);
+  
+        const that = this;
+  
+        //等待注册成功后再跳转页面
         wx.request({
-            url: that.data.urlRegister,
-            method: 'POST',
-            header: {
-              'Content-Type': 'application/json'
-            },
-            data: that.data.userInfo,
-            success: (res) => {
-              console.log(res)
-            },
-            fail: (err) => {
-              console.log(err)
-            }
-          }),
-          wx.switchTab({
-            url: '/pages/index/index',
-            success: (res) => {
+          url: that.data.urlRegister,
+          method: 'POST',
+          header: {
+            'Content-Type': 'application/json'
+          },
+          data: userInfoTemp,
+          success: (res) => {
+            console.log('注册返回:', res);
+  
+            if (res.data.code === 0) {
               wx.showToast({
                 title: '注册成功！',
-                icon:'success'
-              })
-            },
-            fail: (err) => console.error('跳转失败:', err)
-          });
+                icon: 'success'
+              });
+  
+              //注册成功后跳转
+              wx.switchTab({
+                url: '/pages/index/index',
+                fail: (err) => console.error('跳转失败:', err)
+              });
+            } else {
+              wx.showToast({
+                title: res.data.msg || '注册失败',
+                icon: 'error'
+              });
+            }
+          },
+          fail: (err) => {
+            console.error('注册请求失败:', err);
+            wx.showToast({
+              title: '网络异常',
+              icon: 'error'
+            });
+          }
+        });
       },
       fail: (err) => {
         console.error('获取用户信息失败', err);
         wx.showToast({
-          title: '获取信息失败',
+          title: '用户拒绝授权',
           icon: 'error'
         });
       }

@@ -4,8 +4,8 @@ Page( {
   data: {
     image: {},
     timers: {},
-    urlSel: 'http://49.233.83.47:8082/image/selectByUser',
-    urlDel: 'http://49.233.83.47:8082/image/deleteById',
+    urlSel: 'https://www.qiguoqiang.top/image/selectByUser',
+    urlDel: 'https://www.qiguoqiang.top/image/deleteById',
     diseaseMap: {
       0: '未分类',
       1: '锈病',
@@ -30,7 +30,9 @@ Page( {
       header: {
         'Content-Type': 'application/json'
       },
-      data: openId,
+      data: {
+        openId: openId
+      },
       success: (res) => {
         // console.log(res)
         if (res.data.code == 0) {
