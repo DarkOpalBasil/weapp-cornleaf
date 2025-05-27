@@ -8,8 +8,8 @@ Page({
       "openId": ''
     },
     motto: '欢迎登录！',
-    urlLogin: 'http://localhost/user/login',
-    urlRegister: 'http://localhost/user/register'
+    urlLogin: 'http://49.233.83.47:8082/user/login',
+    urlRegister: 'http://49.233.83.47:8082/user/register'
   },
   onLoad: function () {
     //调用API从本地缓存中获取数据

@@ -4,17 +4,16 @@ Page( {
   data: {
     image: {},
     timers: {},
-    urlSel: 'http://localhost/image/selectByUser',
-    urlDel: 'http://localhost/image/deleteById',
+    urlSel: 'http://49.233.83.47:8082/image/selectByUser',
+    urlDel: 'http://49.233.83.47:8082/image/deleteById',
     diseaseMap: {
       0: '未分类',
       1: '锈病',
       2: '灰斑病',
-      3: '大斑病',
-      4: '叶斑病',
-      5: '矮花叶病',
-      6: '健康',
-      7: '未识别到叶片'
+      3: '叶斑病',
+      4: '矮花叶病',
+      5: '健康',
+      6: '未识别到叶片'
     },
     uploadTypeMap: {
       0: '相册上传',

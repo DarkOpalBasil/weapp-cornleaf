@@ -15,7 +15,7 @@ Page({
     step:"1",
     step2Canvas:"",
     photoPath:"", //拍的照片临时文件的地址
-    urlUp:'http://localhost/image/upload', //上传地址
+    urlUp:'http://49.233.83.47:8082/image/upload', //上传地址
     showText:true,
     left:0,
     top:0,
