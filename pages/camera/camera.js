@@ -34,7 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.data.showCanvas = wx.createCanvasContext("show");
+    this.data.showCanvas = wx.CanvasContext("show");
   },
   changeDevice(){
     let data=""
@@ -165,7 +165,7 @@ Page({
   //返回
   back(){
     this.data.photoPath=""
-    this.data.showCanvas = wx.createCanvasContext("show");
+    this.data.showCanvas = wx.CanvasContext("show");
     this.drawImage(this.data.showCanvas)
     this.setData({
       step:1
@@ -185,7 +185,7 @@ Page({
   },
   download(){
     //将像呈现在download的canvas上
-    this.drawImage(wx.createCanvasContext("download"))
+    this.drawImage(wx.CanvasContext("download"))
     let that = this;
     let photoPath = this.data.photoPath
     setTimeout(() => {

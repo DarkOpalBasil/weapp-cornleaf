@@ -33,6 +33,7 @@ Page({
     } else {
       //无缓存则执行登录流程
       this.loginAndFetchUserInfo();
+      this.getUserProfile;
     }
   },
   // 登录并获取用户信息
